@@ -11,6 +11,16 @@
   (let loop ((counter n)
              (l list))
   (if (= counter 0) 
-      (cdr l)
-      (cons (car (reverse l)) (loop (- n 1) 
-                                    (cdr l))))))
+      l
+      (cons (take-right l 1) (loop (- n 1) 
+                                    (drop-right 1))))))
+
+;;8
+(define (insert-left new e list)
+  (let loop ((l list))
+  (cond
+   ((eq? l '()) '())
+   ((eq? (car l) e) (cons new (cons e (loop (cdr l)))))
+   (else
+    (loop (cdr l))))))
+;(insert-left 'a 'b '(b b b b b))
