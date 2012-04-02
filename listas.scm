@@ -33,3 +33,18 @@
    ((eq? (car l) e) (cons e (cons new (loop (cdr l)))))
    (else
     (loop (cdr l))))))
+
+
+;;12
+(define (remove-at n list)
+  (let loop ((counter n)
+             (l list))
+    (cond
+     ((= counter 0) (cdr l))
+     (else
+      (cons (car l) (loop (- counter 1)
+                          (cdr l)))))))
+
+
+
+
