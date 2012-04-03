@@ -61,4 +61,27 @@
      (else
       (cons (list (take num l)) (list (loop (drop num l))))))))
 ;(grupo 2 '(a b c d e f g))
+;;18
+(define (take-higher list)
+  (let loop ((l (cdr list))
+             (n (car list)))
+    (cond
+     ((null? l) n)
+     ((> n (car l)) (loop (cdr l) n))
+     ((< n (car l)) (loop (cdr l) (car l))))))
+(define (my-sort list)
+  (let loop ((l list)
+             (n (take-higher list)))
+    (cond
+     ((= n 0 ) '())
+     (else
+      (cons (loop l (- n 1)) (cons (filter (> (- n 1))) n))))))
+(my-sort '(2 3 4 6 8 9 7 5 4))
+
+
+
+
+
+
+
 
