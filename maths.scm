@@ -1,4 +1,22 @@
-;;2
+;;UTILITIES
+(define (list-operator operator list)
+  (let loop ((l list)
+             (result (cond
+                      ((eq? operator *) 1)
+                      ((eq? operator /) 1)
+                      (else
+                       0))))
+    (cond
+     ((null? l) result)
+     (else
+      (loop (cdr l) (operator result (car l)))))))
+;;(list-operator * '(1 2 3 4 5))
+;;(list-operator / '(1 2 3 4 5))
+;;(list-operator + '(1 2 3 4 5))
+;;(list-operator - '(1 2 3 4 5))
+
+
+;;2 MODA
 (define (counter a list)
   (let loop ((l list)
              (counter 0))
@@ -19,4 +37,8 @@
      ((= n (counter (car l) l)) (loop (cdr l) n (cons result (car l))))
      (else
       (loop (cdr l) (counter (car l) l) (car l))))))
-;(moda '(1 1 1 3 3 3))
+;(moda '(1 1 1 3 3 3 4 4 4))
+
+;;4 MEDIA GEOMETRICA
+(define (geometric-mean list)
+  (raizenesima()))

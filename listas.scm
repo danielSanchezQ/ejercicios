@@ -75,8 +75,8 @@
     (cond
      ((= n 0 ) '())
      (else
-      (cons (loop l (- n 1)) (cons (filter (> (- n 1))) n))))))
-(my-sort '(2 3 4 6 8 9 7 5 4))
+      (cons (loop l (- n 1)))(cons (filter (> (- n 1))) n)))))
+(my-sort '(2 3 4 5 6 7))
 
 
 
