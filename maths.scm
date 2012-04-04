@@ -10,6 +10,22 @@
      ((null? l) result)
      (else
       (loop (cdr l) (operator result (car l)))))))
+
+(define (take-higher list)
+  (let loop ((l (cdr list))
+             (n (car list)))
+    (cond
+     ((null? l) n)
+     ((> n (car l)) (loop (cdr l) n))
+     ((< n (car l)) (loop (cdr l) (car l))))))
+
+(define (take-lower list)
+  (let loop ((l (cdr list))
+             (n (car list)))
+    (cond
+     ((null? l) n)
+     ((< n (car l)) (loop (cdr l) n))
+     ((> n (car l)) (loop (cdr l) (car l))))))
 ;;(list-operator * '(1 2 3 4 5))
 ;;(list-operator / '(1 2 3 4 5))
 ;;(list-operator + '(1 2 3 4 5))
@@ -51,3 +67,9 @@
 
 (quadratic-mean '(1 1 1 1 1 1))
 (quadratic-mean '(4 5 6 3 8))
+
+;;10 RANGO MEDIO
+(define (mid-range l-pairs)
+  (/ (+ (take-higher l-pairs) (take-lower l-pairs)) 2))
+
+(mid-range '(2 3 4 5 6))
