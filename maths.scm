@@ -40,5 +40,14 @@
 ;(moda '(1 1 1 3 3 3 4 4 4))
 
 ;;4 MEDIA GEOMETRICA
-(define (geometric-mean list)
-  (raizenesima()))
+(define (geometric-mean l)
+  (raizenesima(list-operator * l)))
+
+;;6 SOLO CAMBIAR EL NOMBRE
+
+;;8 MEDIA CUADRATICA
+(define (quadratic-mean l)
+  (sqrt(/ (list-operator + (map * l l)) (length l)))) 
+
+(quadratic-mean '(1 1 1 1 1 1))
+(quadratic-mean '(4 5 6 3 8))
